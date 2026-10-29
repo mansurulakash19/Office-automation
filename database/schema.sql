@@ -1,0 +1,147 @@
+-- A2Z Central database schema (MySQL / MariaDB).
+-- Every module is linked to the others with FOREIGN KEYS (normalized design).
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role ENUM('admin','staff') NOT NULL DEFAULT 'staff',
+  designation VARCHAR(100) DEFAULT NULL,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  last_login DATETIME DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS clients (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  contact_person VARCHAR(100) DEFAULT NULL,
+  phone VARCHAR(30) DEFAULT NULL,
+  email VARCHAR(150) DEFAULT NULL,
+  address VARCHAR(255) DEFAULT NULL,
+  notes VARCHAR(255) DEFAULT NULL,
+  last_contact DATE DEFAULT NULL,
+  next_followup DATE DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS projects (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  client_id INT UNSIGNED NOT NULL,
+  manager_id INT UNSIGNED DEFAULT NULL,
+  title VARCHAR(150) NOT NULL,
+  description VARCHAR(500) DEFAULT NULL,
+  start_date DATE DEFAULT NULL,
+  deadline DATE DEFAULT NULL,
+  status ENUM('Planning','In Progress','On Hold','Completed') NOT NULL DEFAULT 'Planning',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_projects_client FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE RESTRICT,
+  CONSTRAINT fk_projects_manager FOREIGN KEY (manager_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS tasks (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  project_id INT UNSIGNED NOT NULL,
+  assigned_to INT UNSIGNED DEFAULT NULL,
+  title VARCHAR(150) NOT NULL,
+  priority ENUM('Low','Medium','High') NOT NULL DEFAULT 'Medium',
+  due_date DATE DEFAULT NULL,
+  status ENUM('To Do','In Progress','Done') NOT NULL DEFAULT 'To Do',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_tasks_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+  CONSTRAINT fk_tasks_user FOREIGN KEY (assigned_to) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS invoices (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  invoice_no VARCHAR(20) DEFAULT NULL UNIQUE,
+  client_id INT UNSIGNED NOT NULL,
+  project_id INT UNSIGNED DEFAULT NULL,
+  amount DECIMAL(12,2) NOT NULL,
+  issue_date DATE NOT NULL,
+  due_date DATE NOT NULL,
+  status ENUM('Pending','Paid','Overdue') NOT NULL DEFAULT 'Pending',
+  paid_date DATE DEFAULT NULL,
+  notes VARCHAR(255) DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_invoices_client FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE RESTRICT,
+  CONSTRAINT fk_invoices_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS attendance (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  att_date DATE NOT NULL,
+  status ENUM('Present','Late','Absent','Leave') NOT NULL DEFAULT 'Present',
+  check_in TIME DEFAULT NULL,
+  check_out TIME DEFAULT NULL,
+  UNIQUE KEY uq_user_day (user_id, att_date),
+  CONSTRAINT fk_attendance_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS design_files (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  project_id INT UNSIGNED NOT NULL,
+  original_name VARCHAR(255) NOT NULL,
+  stored_name VARCHAR(255) NOT NULL,
+  version INT UNSIGNED NOT NULL DEFAULT 1,
+  file_size INT UNSIGNED NOT NULL DEFAULT 0,
+  notes VARCHAR(255) DEFAULT NULL,
+  uploaded_by INT UNSIGNED DEFAULT NULL,
+  uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_files_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+  CONSTRAINT fk_files_user FOREIGN KEY (uploaded_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS visit_logs (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  visitor_name VARCHAR(100) NOT NULL,
+  organization VARCHAR(120) DEFAULT NULL,
+  purpose VARCHAR(255) NOT NULL,
+  host_id INT UNSIGNED DEFAULT NULL,
+  visit_date DATE NOT NULL,
+  time_in TIME NOT NULL,
+  time_out TIME DEFAULT NULL,
+  logged_by INT UNSIGNED DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_visits_host FOREIGN KEY (host_id) REFERENCES users(id) ON DELETE SET NULL,
+  CONSTRAINT fk_visits_logger FOREIGN KEY (logged_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS approvals (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(150) NOT NULL,
+  description VARCHAR(500) DEFAULT NULL,
+  project_id INT UNSIGNED DEFAULT NULL,
+  requested_by INT UNSIGNED NOT NULL,
+  approver_id INT UNSIGNED DEFAULT NULL,
+  due_date DATE DEFAULT NULL,
+  status ENUM('Pending','Approved','Rejected','Overdue') NOT NULL DEFAULT 'Pending',
+  remarks VARCHAR(255) DEFAULT NULL,
+  decided_at DATETIME DEFAULT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_approvals_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL,
+  CONSTRAINT fk_approvals_requester FOREIGN KEY (requested_by) REFERENCES users(id) ON DELETE CASCADE,
+  CONSTRAINT fk_approvals_approver FOREIGN KEY (approver_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS notifications (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  message VARCHAR(255) NOT NULL,
+  link VARCHAR(120) DEFAULT NULL,
+  type ENUM('info','reminder','success','warning') NOT NULL DEFAULT 'info',
+  is_read TINYINT(1) NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_notes_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS activity_log (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED DEFAULT NULL,
+  module VARCHAR(30) NOT NULL,
+  action VARCHAR(255) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_activity_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
