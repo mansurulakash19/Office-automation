@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1210 1116" width="1210" height="1116" font-family="Segoe UI, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#F6F8FB"/>
+<text x="605.0" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#101C36">A2Z Central — Entity-Relationship Diagram</text>
+<path d="M750,112 L880,112" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="764" y="105" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="866" y="105" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="815.0" y="104" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">client_id</text>
+<path d="M350,112 L470,112" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="364" y="105" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="456" y="105" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="410.0" y="104" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">manager_id</text>
+<path d="M610,304 L610,370" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="622" y="318" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="622" y="364" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="662" y="341.0" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">project_id</text>
+<path d="M350,170 L388,170 L388,440 L470,440" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="364" y="163" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="456" y="433" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="390" y="320" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">assigned_to</text>
+<path d="M350,210 L416,210 L416,710 L470,710" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="364" y="203" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="456" y="703" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="418" y="630" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">uploaded_by</text>
+<path d="M750,235 L790,235 L790,730 L750,730" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="764" y="228" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="764" y="723" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="792" y="535" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">project_id</text>
+<path d="M750,180 L822,180 L822,480 L880,480" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="764" y="173" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="866" y="473" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="824" y="300" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">project_id</text>
+<path d="M1020,326 L1020,390" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="1032" y="340" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="1032" y="384" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="1072" y="362.0" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">client_id</text>
+<path d="M70,150 L48,150 L48,430 L70,430" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="58" y="143" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="58" y="423" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="50" y="390" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">user_id</text>
+<path d="M70,170 L34,170 L34,660 L70,660" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="58" y="163" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="58" y="653" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="36" y="620" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">user_id</text>
+<path d="M70,190 L20,190 L20,900 L70,900" fill="none" stroke="#5E6B85" stroke-width="1.6"/>
+<text x="58" y="183" font-size="13" font-weight="700" fill="#101C36" text-anchor="middle">1</text>
+<text x="58" y="893" font-size="13" font-weight="700" fill="#C2410C" text-anchor="middle">N</text>
+<text x="22" y="860" font-size="11" fill="#5E6B85" text-anchor="middle" font-style="italic">user_id</text>
+<g><rect x="70" y="60" width="280" height="244" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M70,96 V70 a10,10 0 0 1 10,-10 H340 a10,10 0 0 1 10,10 V96 Z" fill="#101C36"/>
+<text x="84" y="84" font-size="15" font-weight="700" fill="#F5A623">users</text>
+<text x="84" y="113" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="220" y="113" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="113" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="71" y="119" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="135" font-size="13" font-weight="400" fill="#0F1B33">name</text>
+<text x="220" y="135" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(100)</text>
+<text x="84" y="157" font-size="13" font-weight="400" fill="#0F1B33">email</text>
+<text x="220" y="157" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(150)</text>
+<text x="340" y="157" font-size="10.5" font-weight="700" fill="#12805C" text-anchor="end">UQ</text>
+<rect x="71" y="163" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="179" font-size="13" font-weight="400" fill="#0F1B33">password_hash</text>
+<text x="220" y="179" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<text x="84" y="201" font-size="13" font-weight="400" fill="#0F1B33">role</text>
+<text x="220" y="201" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<rect x="71" y="207" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="223" font-size="13" font-weight="400" fill="#0F1B33">designation</text>
+<text x="220" y="223" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(100)</text>
+<text x="84" y="245" font-size="13" font-weight="400" fill="#0F1B33">is_active</text>
+<text x="220" y="245" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">TINYINT(1)</text>
+<rect x="71" y="251" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="267" font-size="13" font-weight="400" fill="#0F1B33">last_login</text>
+<text x="220" y="267" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+<text x="84" y="289" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="220" y="289" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="880" y="60" width="280" height="266" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M880,96 V70 a10,10 0 0 1 10,-10 H1150 a10,10 0 0 1 10,10 V96 Z" fill="#101C36"/>
+<text x="894" y="84" font-size="15" font-weight="700" fill="#F5A623">clients</text>
+<text x="894" y="113" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="1030" y="113" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="1150" y="113" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="881" y="119" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="135" font-size="13" font-weight="400" fill="#0F1B33">name</text>
+<text x="1030" y="135" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(150)</text>
+<text x="894" y="157" font-size="13" font-weight="400" fill="#0F1B33">contact_person</text>
+<text x="1030" y="157" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(100)</text>
+<rect x="881" y="163" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="179" font-size="13" font-weight="400" fill="#0F1B33">phone</text>
+<text x="1030" y="179" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(30)</text>
+<text x="894" y="201" font-size="13" font-weight="400" fill="#0F1B33">email</text>
+<text x="1030" y="201" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(150)</text>
+<rect x="881" y="207" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="223" font-size="13" font-weight="400" fill="#0F1B33">address</text>
+<text x="1030" y="223" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<text x="894" y="245" font-size="13" font-weight="400" fill="#0F1B33">notes</text>
+<text x="1030" y="245" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<rect x="881" y="251" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="267" font-size="13" font-weight="400" fill="#0F1B33">last_contact</text>
+<text x="1030" y="267" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<text x="894" y="289" font-size="13" font-weight="400" fill="#0F1B33">next_followup</text>
+<text x="1030" y="289" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<rect x="881" y="295" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="311" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="1030" y="311" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="470" y="60" width="280" height="244" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M470,96 V70 a10,10 0 0 1 10,-10 H740 a10,10 0 0 1 10,10 V96 Z" fill="#101C36"/>
+<text x="484" y="84" font-size="15" font-weight="700" fill="#F5A623">projects</text>
+<text x="484" y="113" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="620" y="113" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="113" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="471" y="119" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="135" font-size="13" font-weight="400" fill="#0F1B33">client_id</text>
+<text x="620" y="135" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="135" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="484" y="157" font-size="13" font-weight="400" fill="#0F1B33">manager_id</text>
+<text x="620" y="157" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="157" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<rect x="471" y="163" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="179" font-size="13" font-weight="400" fill="#0F1B33">title</text>
+<text x="620" y="179" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(150)</text>
+<text x="484" y="201" font-size="13" font-weight="400" fill="#0F1B33">description</text>
+<text x="620" y="201" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(500)</text>
+<rect x="471" y="207" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="223" font-size="13" font-weight="400" fill="#0F1B33">start_date</text>
+<text x="620" y="223" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<text x="484" y="245" font-size="13" font-weight="400" fill="#0F1B33">deadline</text>
+<text x="620" y="245" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<rect x="471" y="251" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="267" font-size="13" font-weight="400" fill="#0F1B33">status</text>
+<text x="620" y="267" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<text x="484" y="289" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="620" y="289" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="470" y="370" width="280" height="222" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M470,406 V380 a10,10 0 0 1 10,-10 H740 a10,10 0 0 1 10,10 V406 Z" fill="#101C36"/>
+<text x="484" y="394" font-size="15" font-weight="700" fill="#F5A623">tasks</text>
+<text x="484" y="423" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="620" y="423" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="423" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="471" y="429" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="445" font-size="13" font-weight="400" fill="#0F1B33">project_id</text>
+<text x="620" y="445" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="445" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="484" y="467" font-size="13" font-weight="400" fill="#0F1B33">assigned_to</text>
+<text x="620" y="467" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="467" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<rect x="471" y="473" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="489" font-size="13" font-weight="400" fill="#0F1B33">title</text>
+<text x="620" y="489" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(150)</text>
+<text x="484" y="511" font-size="13" font-weight="400" fill="#0F1B33">priority</text>
+<text x="620" y="511" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<rect x="471" y="517" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="533" font-size="13" font-weight="400" fill="#0F1B33">due_date</text>
+<text x="620" y="533" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<text x="484" y="555" font-size="13" font-weight="400" fill="#0F1B33">status</text>
+<text x="620" y="555" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<rect x="471" y="561" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="577" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="620" y="577" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="880" y="390" width="280" height="288" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M880,426 V400 a10,10 0 0 1 10,-10 H1150 a10,10 0 0 1 10,10 V426 Z" fill="#101C36"/>
+<text x="894" y="414" font-size="15" font-weight="700" fill="#F5A623">invoices</text>
+<text x="894" y="443" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="1030" y="443" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="1150" y="443" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="881" y="449" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="465" font-size="13" font-weight="400" fill="#0F1B33">invoice_no</text>
+<text x="1030" y="465" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(20)</text>
+<text x="1150" y="465" font-size="10.5" font-weight="700" fill="#12805C" text-anchor="end">UQ</text>
+<text x="894" y="487" font-size="13" font-weight="400" fill="#0F1B33">client_id</text>
+<text x="1030" y="487" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="1150" y="487" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<rect x="881" y="493" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="509" font-size="13" font-weight="400" fill="#0F1B33">project_id</text>
+<text x="1030" y="509" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="1150" y="509" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="894" y="531" font-size="13" font-weight="400" fill="#0F1B33">amount</text>
+<text x="1030" y="531" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DECIMAL(12,2)</text>
+<rect x="881" y="537" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="553" font-size="13" font-weight="400" fill="#0F1B33">issue_date</text>
+<text x="1030" y="553" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<text x="894" y="575" font-size="13" font-weight="400" fill="#0F1B33">due_date</text>
+<text x="1030" y="575" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<rect x="881" y="581" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="597" font-size="13" font-weight="400" fill="#0F1B33">status</text>
+<text x="1030" y="597" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<text x="894" y="619" font-size="13" font-weight="400" fill="#0F1B33">paid_date</text>
+<text x="1030" y="619" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<rect x="881" y="625" width="278" height="22" fill="#F6F8FB"/>
+<text x="894" y="641" font-size="13" font-weight="400" fill="#0F1B33">notes</text>
+<text x="1030" y="641" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<text x="894" y="663" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="1030" y="663" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="70" y="360" width="280" height="178" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M70,396 V370 a10,10 0 0 1 10,-10 H340 a10,10 0 0 1 10,10 V396 Z" fill="#101C36"/>
+<text x="84" y="384" font-size="15" font-weight="700" fill="#F5A623">attendance</text>
+<text x="84" y="413" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="220" y="413" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="413" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="71" y="419" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="435" font-size="13" font-weight="400" fill="#0F1B33">user_id</text>
+<text x="220" y="435" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="435" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="84" y="457" font-size="13" font-weight="400" fill="#0F1B33">att_date</text>
+<text x="220" y="457" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATE</text>
+<rect x="71" y="463" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="479" font-size="13" font-weight="400" fill="#0F1B33">status</text>
+<text x="220" y="479" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<text x="84" y="501" font-size="13" font-weight="400" fill="#0F1B33">check_in</text>
+<text x="220" y="501" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">TIME</text>
+<rect x="71" y="507" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="523" font-size="13" font-weight="400" fill="#0F1B33">check_out</text>
+<text x="220" y="523" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">TIME</text>
+</g>
+<g><rect x="470" y="640" width="280" height="244" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M470,676 V650 a10,10 0 0 1 10,-10 H740 a10,10 0 0 1 10,10 V676 Z" fill="#101C36"/>
+<text x="484" y="664" font-size="15" font-weight="700" fill="#F5A623">design_files</text>
+<text x="484" y="693" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="620" y="693" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="693" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="471" y="699" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="715" font-size="13" font-weight="400" fill="#0F1B33">project_id</text>
+<text x="620" y="715" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="715" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="484" y="737" font-size="13" font-weight="400" fill="#0F1B33">original_name</text>
+<text x="620" y="737" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<rect x="471" y="743" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="759" font-size="13" font-weight="400" fill="#0F1B33">stored_name</text>
+<text x="620" y="759" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<text x="484" y="781" font-size="13" font-weight="400" fill="#0F1B33">version</text>
+<text x="620" y="781" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<rect x="471" y="787" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="803" font-size="13" font-weight="400" fill="#0F1B33">file_size</text>
+<text x="620" y="803" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="484" y="825" font-size="13" font-weight="400" fill="#0F1B33">notes</text>
+<text x="620" y="825" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<rect x="471" y="831" width="278" height="22" fill="#F6F8FB"/>
+<text x="484" y="847" font-size="13" font-weight="400" fill="#0F1B33">uploaded_by</text>
+<text x="620" y="847" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="740" y="847" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="484" y="869" font-size="13" font-weight="400" fill="#0F1B33">uploaded_at</text>
+<text x="620" y="869" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="70" y="590" width="280" height="200" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M70,626 V600 a10,10 0 0 1 10,-10 H340 a10,10 0 0 1 10,10 V626 Z" fill="#101C36"/>
+<text x="84" y="614" font-size="15" font-weight="700" fill="#F5A623">notifications</text>
+<text x="84" y="643" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="220" y="643" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="643" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="71" y="649" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="665" font-size="13" font-weight="400" fill="#0F1B33">user_id</text>
+<text x="220" y="665" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="665" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="84" y="687" font-size="13" font-weight="400" fill="#0F1B33">message</text>
+<text x="220" y="687" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<rect x="71" y="693" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="709" font-size="13" font-weight="400" fill="#0F1B33">link</text>
+<text x="220" y="709" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(120)</text>
+<text x="84" y="731" font-size="13" font-weight="400" fill="#0F1B33">type</text>
+<text x="220" y="731" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">ENUM</text>
+<rect x="71" y="737" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="753" font-size="13" font-weight="400" fill="#0F1B33">is_read</text>
+<text x="220" y="753" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">TINYINT(1)</text>
+<text x="84" y="775" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="220" y="775" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g><rect x="70" y="830" width="280" height="156" rx="10" fill="#fff" stroke="#CDD5E1" stroke-width="1.5"/>
+<path d="M70,866 V840 a10,10 0 0 1 10,-10 H340 a10,10 0 0 1 10,10 V866 Z" fill="#101C36"/>
+<text x="84" y="854" font-size="15" font-weight="700" fill="#F5A623">activity_log</text>
+<text x="84" y="883" font-size="13" font-weight="700" fill="#0F1B33">id</text>
+<text x="220" y="883" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="883" font-size="10.5" font-weight="700" fill="#B45309" text-anchor="end">PK</text>
+<rect x="71" y="889" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="905" font-size="13" font-weight="400" fill="#0F1B33">user_id</text>
+<text x="220" y="905" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">INT</text>
+<text x="340" y="905" font-size="10.5" font-weight="700" fill="#1F5FD1" text-anchor="end">FK</text>
+<text x="84" y="927" font-size="13" font-weight="400" fill="#0F1B33">module</text>
+<text x="220" y="927" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(30)</text>
+<rect x="71" y="933" width="278" height="22" fill="#F6F8FB"/>
+<text x="84" y="949" font-size="13" font-weight="400" fill="#0F1B33">action</text>
+<text x="220" y="949" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">VARCHAR(255)</text>
+<text x="84" y="971" font-size="13" font-weight="400" fill="#0F1B33">created_at</text>
+<text x="220" y="971" font-size="11.5" fill="#8A95AB" font-family="Consolas, monospace">DATETIME</text>
+</g>
+<g font-size="12" fill="#0F1B33"><text x="70" y="1056" font-weight="700">Legend</text><text x="140" y="1056"><tspan font-weight="700" fill="#B45309">PK</tspan> primary key   <tspan font-weight="700" fill="#1F5FD1">FK</tspan> foreign key   <tspan font-weight="700" fill="#12805C">UQ</tspan> unique   <tspan font-weight="700">1</tspan> ──── <tspan font-weight="700" fill="#C2410C">N</tspan>  one parent record has many child records</text><text x="70" y="1078" fill="#5E6B85">Deleting a client that still has projects or invoices is blocked (RESTRICT); tasks and design files are deleted with their project (CASCADE).</text></g>
+</svg>
