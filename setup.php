@@ -33,7 +33,7 @@ function run_schema(mysqli $m): int {
 }
 
 // Adds demo data. All dates are RELATIVE TO TODAY, so the demo always has items that are
-// overdue, due soon, and fine — perfect for showing the automation engine.
+// overdue, due soon, and fine — so the colour-coded due dates always have something to show.
 function seed_demo(): array {
     if ((int) db_value('SELECT COUNT(*) FROM users') > 0) {
         return ['skipped' => 1];      // the database already has data: do not add it twice
@@ -103,7 +103,7 @@ function seed_demo(): array {
         [4, 'Final report submission',          3, 'Medium', -12, 'Done'],
         [4, 'Client handover',                  2, 'Low',    -10, 'Done'],
         [5, 'Cleanroom class specification',    3, 'High',    8, 'In Progress'],
-        [5, 'Material approval request',        1, 'Medium',  4, 'To Do'],
+        [5, 'Material sample submission',       1, 'Medium',  4, 'To Do'],
         [5, 'Budget breakdown',                 1, 'Medium',  2, 'In Progress'],
     ];
     foreach ($taskRows as $r) {
@@ -112,7 +112,7 @@ function seed_demo(): array {
     }
 
     // ----- Invoices: client, project, amount, issued (days), due (days), status, paid (days) -----
-    // Three invoices are past their due date but still "Pending": running the automation engine turns them Overdue.
+    // Three invoices are past their due date but still "Pending" (they show a red "days late" chip).
     $invoiceRows = [
         [3, 2, 350000, -150, -120, 'Paid', -122],
         [0, null, 180000, -130, -100, 'Paid', -105],
@@ -133,20 +133,6 @@ function seed_demo(): array {
         $id = db_insert('INSERT INTO invoices (client_id, project_id, amount, issue_date, due_date, status, paid_date) VALUES (?,?,?,?,?,?,?)',
             [$c[$r[0]], $r[1] === null ? null : $p[$r[1]], (float)$r[2], $d($r[3]), $d($r[4]), $r[5], $r[6] === null ? null : $d($r[6])]);
         db_exec('UPDATE invoices SET invoice_no = ? WHERE id = ?', [sprintf('INV-%04d', $id), $id]);
-    }
-
-    // ----- Approvals: title, description, project, requested by, due (days), status, remarks, decided (days) -----
-    $approvalRows = [
-        ['Steel beam supplier selection', 'Compare three quotations and choose a supplier.',  0, 2, 2,  'Pending', null, null],
-        ['Revised single-line diagram',   'Rev B after the client comments.',                  1, 3, -1, 'Pending', null, null],
-        ['Cleanroom material approval',   'HEPA filter and wall panel samples.',               5, 1, 6,  'Pending', null, null],
-        ['Transformer vendor shortlist',  'Shortlist of two vendors for the 10 MVA unit.',     2, 2, 1,  'Pending', null, null],
-        ['Budget variance — Phase 2',     'Extra cost of cable trays.',                        2, 1, -9, 'Approved', 'Approved within the contingency budget.', -8],
-        ['HVAC vendor change request',    'Switch to a different chiller supplier.',           3, 3, -15, 'Rejected', 'Need two more quotations first.', -14],
-    ];
-    foreach ($approvalRows as $r) {
-        db_insert('INSERT INTO approvals (title, description, project_id, requested_by, approver_id, due_date, status, remarks, decided_at) VALUES (?,?,?,?,?,?,?,?,?)',
-            [$r[0], $r[1], $p[$r[2]], $u[$r[3]], $u[0], $d($r[4]), $r[5], $r[6], $r[7] === null ? null : $d($r[7]) . ' 15:30:00']);
     }
 
     // ----- Attendance: last 10 days (Friday and Saturday are the weekend in Bangladesh) -----
@@ -172,19 +158,6 @@ function seed_demo(): array {
         }
     }
 
-    // ----- Visitors: visitor, organization, purpose, host, day offset, in, out -----
-    $visitRows = [
-        ['Md. Jashim Uddin', 'Bashundhara Constructions Ltd.', 'Invoice discussion',        0, 0, '10:15:00', '10:50:00'],
-        ['Eng. Rubel Mia',   'Meghna Power Solutions',         'Substation drawing review', 2, 0, '11:30:00', null],
-        ['Courier — SteadFast', '',                            'Document delivery',         1, 0, '12:05:00', '12:12:00'],
-        ['Dr. Nilufar Yasmin', 'Sunrise Pharma Ltd.',          'Cleanroom layout meeting',  3, -1, '14:00:00', '15:20:00'],
-        ['Anwar Karim',      'Padma Tower Holdings',           'HVAC options discussion',   0, -1, '11:10:00', '11:55:00'],
-    ];
-    foreach ($visitRows as $r) {
-        db_insert('INSERT INTO visit_logs (visitor_name, organization, purpose, host_id, visit_date, time_in, time_out, logged_by) VALUES (?,?,?,?,?,?,?,?)',
-            [$r[0], $r[1], $r[2], $u[$r[3]], $d($r[4]), $r[5], $r[6], $u[1]]);
-    }
-
     // ----- Design files (small placeholder text files so Download works) -----
     if (!is_dir(UPLOAD_DIR)) { mkdir(UPLOAD_DIR, 0775, true); }
     $fileRows = [
@@ -205,16 +178,15 @@ function seed_demo(): array {
         [2, 'projects', 'Moved task "Order steel beams" to In Progress', '-3 hours'],
         [3, 'files', 'Uploaded Foundation_Notes.txt as version 2', '-1 day'],
         [1, 'accounts', 'Created invoice INV-0014 (৳60,000)', '-1 day'],
-        [0, 'approvals', 'Approved: Budget variance — Phase 2', '-8 days'],
     ];
     foreach ($activityRows as $r) {
         db_insert('INSERT INTO activity_log (user_id, module, action, created_at) VALUES (?,?,?,?)',
             [$u[$r[0]], $r[1], $r[2], date('Y-m-d H:i:s', strtotime($r[3]))]);
     }
-    notify($u[0], 'Welcome to A2Z Central! Open the Automation Engine page and press "Run everything now" to see the automation at work.', 'automation.php', 'info');
+    notify($u[0], 'Welcome to A2Z Central! Explore the modules from the sidebar.', 'accounts.php', 'info');
 
     return ['users' => count($u), 'clients' => count($c), 'projects' => count($p), 'tasks' => count($taskRows),
-            'invoices' => count($invoiceRows), 'approvals' => count($approvalRows), 'files' => count($fileRows)];
+            'invoices' => count($invoiceRows), 'files' => count($fileRows)];
 }
 
 // =====================================================================
@@ -266,7 +238,7 @@ if (!$installed && $_SERVER['REQUEST_METHOD'] === 'POST') {
     <tr><td>Administrator</td><td>admin@a2z.com / Admin@123</td></tr>
     <tr><td>Staff member</td><td>nusrat@a2z.com / Staff@123</td></tr>
   </table>
-  <p>Next: open the login page, sign in as the administrator, then go to <b>Automation Engine → Run everything now</b> to watch past-due invoices flip to <i>Overdue</i> automatically.</p>
+  <p>Next: open the login page and sign in as the administrator. The sidebar opens Accounts &amp; HR, Client Records, Design Files and Project Tracking.</p>
   <p><a class="btn" href="login.php">Go to the login page</a></p>
   <p style="font-size:13px">When your project is finished, delete <code>setup.php</code> from the folder.</p>
 <?php elseif ($installed): ?>
@@ -276,7 +248,7 @@ if (!$installed && $_SERVER['REQUEST_METHOD'] === 'POST') {
   <p style="font-size:13px">To reinstall from scratch: drop the <code><?= h(DB_NAME) ?></code> database in phpMyAdmin and delete <code>config/installed.lock</code>.</p>
 <?php else: ?>
   <h1>Install A2Z Central</h1>
-  <p>This creates the database and tables, then adds demo data (users, clients, projects, invoices, approvals…).</p>
+  <p>This creates the database and tables, then adds demo data (users, clients, projects, invoices…).</p>
   <table>
     <tr><td>MySQL host</td><td><?= h(DB_HOST) ?></td></tr>
     <tr><td>MySQL user</td><td><?= h(DB_USER) ?></td></tr>
